@@ -4,10 +4,11 @@ import Categories from '../../categories/components/categories.js'
 import Related from '../components/related'
 import ModalContainer from '../../widgets/containers/modal'
 import Modal from '../../widgets/components/modal'
+import HandleError from '../../error/containers/handleError'
 
 class Home extends Component {
     state = {
-        modalVisible: false,
+        modalVisible: false
     }
     handleOpenModal = () => {
         this.setState({
@@ -21,23 +22,25 @@ class Home extends Component {
     }
     render() {
         return (
-            <HomeLayout>
-                <Related />
-                <Categories 
-                    categories={this.props.data.categories}
-                    handleOpenModal={this.handleOpenModal}
-                 />
-                {
-                    this.state.modalVisible &&
-                    <ModalContainer>
-                        <Modal
-                            handleClick={this.handleCloseModal}
-                        >
-                            <h1> Esto es un Portal </h1>
-                        </Modal>
-                    </ModalContainer>
-                }
-            </HomeLayout>
+            <HandleError>
+                <HomeLayout>
+                    <Related />
+                    <Categories 
+                        categories={this.props.data.categories}
+                        handleOpenModal={this.handleOpenModal}
+                    />
+                    {
+                        this.state.modalVisible &&
+                        <ModalContainer>
+                            <Modal
+                                handleClick={this.handleCloseModal}
+                            >
+                                <h1> Esto es un Portal </h1>
+                            </Modal>
+                        </ModalContainer>
+                    }
+                </HomeLayout>
+            </HandleError>
         )
     }
 } 

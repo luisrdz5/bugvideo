@@ -5,7 +5,7 @@ function Timer(props) {
     return (
         <div className="timer">
             <p>
-                <span> 00 / {props.duration} </span>
+                <span> {props.currentTime} / {props.duration} </span>
             </p>
         </div>
     )

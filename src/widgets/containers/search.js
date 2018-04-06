@@ -8,7 +8,7 @@ class SearchContainer extends Component {
     }
     handleSubmit = event => {
         event.preventDefault();
-        console.log(this.input.value)
+        console.log(this.input.value, 'submit')
     }
     setInputRef = element => {
         this.input = element

@@ -4,6 +4,7 @@ import Home from '../pages/containers/home'
 import data from '../api.json'
 import { Provider } from 'react-redux'
 import { CreateStore, createStore } from 'redux'
+import reducer from '../reducers/data'
 
 // import Media from './src/playlist/components/media'
 // import Playlist from './src/playlist/components/playlist.js'
@@ -11,10 +12,11 @@ import { CreateStore, createStore } from 'redux'
 const initialState = {
     data: {
         ...data
-    }
+    },
+    search: []
 }
 const store = createStore(
-    (state) => state,
+    reducer,
     initialState,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )

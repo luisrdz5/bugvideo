@@ -7,13 +7,16 @@ import reducer from '../reducers/index'
 import { Map as map } from 'immutable'
 import logger from 'redux-logger'
 import { composeWithDevTools } from 'redux-devtools-extension'
-//import thunk from 'redux-thunk'
+import thunk from 'redux-thunk'
 
 const store = createStore(
     reducer,
     map(),
     composeWithDevTools (
-        applyMiddleware(logger),
+        applyMiddleware(
+            logger,
+            thunk
+        ),
     )
 )
 

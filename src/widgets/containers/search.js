@@ -9,7 +9,6 @@ class SearchContainer extends Component {
     }
     handleSubmit = event => {
         event.preventDefault();
-        console.log(this.input.value, 'submit')
         this.props.dispatch({
             payload: {
                 query: this.input.value,

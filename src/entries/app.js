@@ -1,5 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
+import { BrowserRouter } from 'react-router-dom';
 import Home from '../pages/containers/home'
 import { Provider } from 'react-redux'
 import { applyMiddleware, createStore } from 'redux'
@@ -22,7 +23,9 @@ const store = createStore(
 
 const homeContainer = document.getElementById('home-container')
 render( 
-<Provider store = {store}> 
-    <Home />
-</Provider> 
+    <BrowserRouter>
+        <Provider store = {store}> 
+            <Home />
+        </Provider> 
+    </BrowserRouter>
 ,homeContainer)

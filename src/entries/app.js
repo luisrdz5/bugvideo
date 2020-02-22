@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter } from 'react-router-dom';
 import Home from '../pages/containers/home'
@@ -9,6 +9,7 @@ import { Map as map } from 'immutable'
 import logger from 'redux-logger'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
+import Header from '../pages/components/header';
 
 const store = createStore(
     reducer,
@@ -25,7 +26,10 @@ const homeContainer = document.getElementById('home-container')
 render( 
     <BrowserRouter>
         <Provider store = {store}> 
-            <Home />
+            <Fragment>
+                <Header />
+                <Home />
+            </Fragment>
         </Provider> 
     </BrowserRouter>
 ,homeContainer)
